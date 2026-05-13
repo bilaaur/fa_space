@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class GeminiService {
-  static const String _apiKey = 'AIzaSyA7VFIoz8ZX9w3N28Xiv4D_9Qobnyhix18';
+  static final String _apiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
 
   Future<Map<String, dynamic>> getResolution(String problem) async {
     final model = GenerativeModel(

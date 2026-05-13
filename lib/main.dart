@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' as ll;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 // Import Screen & Service
 import 'firebase_options.dart';
@@ -15,6 +16,7 @@ import 'ui/screens/period_tracker.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   
   if (!kIsWeb) {
